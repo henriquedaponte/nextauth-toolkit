@@ -10,7 +10,7 @@ interface HeaderProps {
     label: string
 };
 
-export const HeaderProps = ({ 
+export const Header = ({ 
     label
  }: HeaderProps) => {
     return (
@@ -21,7 +21,7 @@ export const HeaderProps = ({
             )}>
                 🔐 Auth
             </h1>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
                 {label}
             </p>
         </div>
