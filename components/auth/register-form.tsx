@@ -53,9 +53,9 @@ export const LoginForm = () => {
 
     return (
         <CardWrapper
-            headerLabel="Welcome Back"
-            backButtonLabel="Don't have an account? Register"
-            backButtonHref="/auth/register"
+            headerLabel="Welcome"
+            backButtonLabel="Have an account? Log in"
+            backButtonHref="/auth/login"
             showSocial
         >
             <Form {...form}>
@@ -112,7 +112,7 @@ export const LoginForm = () => {
                         disabled={isPending}
                         type="submit"
                         className="w-full">
-                        Login
+                        Register
                     </Button>
                 </form>
             </Form>
