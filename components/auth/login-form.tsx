@@ -15,6 +15,8 @@ import {
 import { LoginSchema } from "@/schemas";
 import { CardWrapper } from "./card-wrapper";
 import { Input } from "../ui/input";
+import { Button } from "../ui/button";
+import { LoginButton } from "./login-button";
 
 export const LoginForm = () => {
     const form = useForm<z.infer<typeof LoginSchema>>({
@@ -24,6 +26,10 @@ export const LoginForm = () => {
             password: ""
         },
     })
+
+    const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+        console.log(values)
+    }
     return (
         <CardWrapper
             headerLabel="Welcome Back"
@@ -31,9 +37,9 @@ export const LoginForm = () => {
             backButtonHref="/auth/register"
             showSocial
         >
-            <Form {...form}>
+            <Form {...form}> 
                 <form 
-                onSubmit={form.handleSubmit(() => {})}
+                onSubmit={form.handleSubmit(onSubmit)}
                 className="space-y-6"
                 >
 
@@ -57,8 +63,31 @@ export const LoginForm = () => {
                             </FormItem>
                         )}
                         />
+                        <FormField
+                        control={form.control}
+                        name="password"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>
+                                    Password
+                                </FormLabel>
+                                <FormControl>
+                                    <Input
+                                    {...field}
+                                    placeholder="******"
+                                    type="password"
+                                    />
+                                </FormControl>
+                                <FormMessage/>
+                            </FormItem>
+                        )}
+                        />
                     </div>
-
+                        <Button
+                        type="submit"
+                        className="w-full">
+                            Login
+                        </Button>
                 </form>
             </Form>
         </CardWrapper>
