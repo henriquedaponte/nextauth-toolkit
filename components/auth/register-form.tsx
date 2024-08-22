@@ -18,7 +18,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { FormError } from "../form-error";
 import { FormSuccess } from "../form-success";
-import { login } from "@/actions/login";
+import { register } from "@/actions/register";
 import { useState, useTransition } from "react";
 
 export const RegisterForm = () => {
@@ -42,7 +42,7 @@ export const RegisterForm = () => {
 
         startTransition(() => {
 
-            login(values)
+            register(values)
                 .then((data) => {
                     setError(data.error);
                     setSuccess(data.success);
